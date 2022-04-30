@@ -28521,6 +28521,8 @@ definitions:
         type: string
   carmonasl.loan.loan.MsgApproveLoanResponse:
     type: object
+  carmonasl.loan.loan.MsgLiquidateLoanResponse:
+    type: object
   carmonasl.loan.loan.MsgRepayLoanResponse:
     type: object
   carmonasl.loan.loan.MsgRequestLoanResponse:

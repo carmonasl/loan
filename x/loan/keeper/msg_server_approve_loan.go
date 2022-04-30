@@ -37,4 +37,3 @@ func (k msgServer) ApproveLoan(goCtx context.Context, msg *types.MsgApproveLoan)
 
 	return &types.MsgApproveLoanResponse{}, nil
 }
-
