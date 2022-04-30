@@ -51,4 +51,3 @@ func (k msgServer) RepayLoan(goCtx context.Context, msg *types.MsgRepayLoan) (*t
 
 	return &types.MsgRepayLoanResponse{}, nil
 }
-

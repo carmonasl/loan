@@ -6,15 +6,17 @@ import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "
 import { Api } from "./rest";
 import { MsgRequestLoan } from "./types/loan/tx";
 import { MsgLiquidateLoan } from "./types/loan/tx";
-import { MsgRepayLoan } from "./types/loan/tx";
 import { MsgApproveLoan } from "./types/loan/tx";
+import { MsgCancelLoan } from "./types/loan/tx";
+import { MsgRepayLoan } from "./types/loan/tx";
 
 
 const types = [
   ["/carmonasl.loan.loan.MsgRequestLoan", MsgRequestLoan],
   ["/carmonasl.loan.loan.MsgLiquidateLoan", MsgLiquidateLoan],
-  ["/carmonasl.loan.loan.MsgRepayLoan", MsgRepayLoan],
   ["/carmonasl.loan.loan.MsgApproveLoan", MsgApproveLoan],
+  ["/carmonasl.loan.loan.MsgCancelLoan", MsgCancelLoan],
+  ["/carmonasl.loan.loan.MsgRepayLoan", MsgRepayLoan],
   
 ];
 export const MissingWalletError = new Error("wallet is required");
@@ -49,8 +51,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
     msgRequestLoan: (data: MsgRequestLoan): EncodeObject => ({ typeUrl: "/carmonasl.loan.loan.MsgRequestLoan", value: MsgRequestLoan.fromPartial( data ) }),
     msgLiquidateLoan: (data: MsgLiquidateLoan): EncodeObject => ({ typeUrl: "/carmonasl.loan.loan.MsgLiquidateLoan", value: MsgLiquidateLoan.fromPartial( data ) }),
-    msgRepayLoan: (data: MsgRepayLoan): EncodeObject => ({ typeUrl: "/carmonasl.loan.loan.MsgRepayLoan", value: MsgRepayLoan.fromPartial( data ) }),
     msgApproveLoan: (data: MsgApproveLoan): EncodeObject => ({ typeUrl: "/carmonasl.loan.loan.MsgApproveLoan", value: MsgApproveLoan.fromPartial( data ) }),
+    msgCancelLoan: (data: MsgCancelLoan): EncodeObject => ({ typeUrl: "/carmonasl.loan.loan.MsgCancelLoan", value: MsgCancelLoan.fromPartial( data ) }),
+    msgRepayLoan: (data: MsgRepayLoan): EncodeObject => ({ typeUrl: "/carmonasl.loan.loan.MsgRepayLoan", value: MsgRepayLoan.fromPartial( data ) }),
     
   };
 };
